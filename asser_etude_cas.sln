@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32407.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asser_etude_cas", "asser_etude_cas\asser_etude_cas.csproj", "{001642CF-A7EB-4D37-BDB7-D8E0C955117F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{001642CF-A7EB-4D37-BDB7-D8E0C955117F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{001642CF-A7EB-4D37-BDB7-D8E0C955117F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{001642CF-A7EB-4D37-BDB7-D8E0C955117F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{001642CF-A7EB-4D37-BDB7-D8E0C955117F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B29B848B-5C05-4FAF-9B86-D37CF86890DB}
+	EndGlobalSection
+EndGlobal
