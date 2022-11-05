@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gONK8oztRArbtpgQg9i/hBVA2hkFsccZMj8oCSiajnfPtUPNMe8toSL4duq7+dfWjYSVIK4XFDY7EPff6dc3gA==",
+  "dgSpecHash": "5fV/2WILE8Mba/HtWiNlUzfyzEEZlT0Ay0iO7F4o5bOwWrEt7HEKBztSYFKvYYa2Gy6kpcFM6NALs9DlSQcvtw==",
   "success": true,
   "projectFilePath": "D:\\Project\\Aser_app\\asser_etude_cas\\asser_etude_cas\\asser_etude_cas.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\ibrahimaibnuomar\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.17\\microsoft.entityframeworkcore.design.5.0.17.nupkg.sha512",
     "C:\\Users\\ibrahimaibnuomar\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.17\\microsoft.entityframeworkcore.relational.5.0.17.nupkg.sha512",
     "C:\\Users\\ibrahimaibnuomar\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.17\\microsoft.entityframeworkcore.sqlserver.5.0.17.nupkg.sha512",
+    "C:\\Users\\ibrahimaibnuomar\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.17\\microsoft.entityframeworkcore.tools.5.0.17.nupkg.sha512",
     "C:\\Users\\ibrahimaibnuomar\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\ibrahimaibnuomar\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
     "C:\\Users\\ibrahimaibnuomar\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
