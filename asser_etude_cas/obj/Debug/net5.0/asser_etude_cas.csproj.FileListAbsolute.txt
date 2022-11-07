@@ -147,3 +147,13 @@ D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\bin\Debug\net5.0\runtimes\wi
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Region\Index.cshtml.g.cs
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Region\Add.cshtml.g.cs
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Region\Edit.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\RegionEntities\Create.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\RegionEntities\Delete.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\RegionEntities\Details.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\RegionEntities\Edit.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\RegionEntities\Index.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Departement\Create.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Departement\Delete.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Departement\Details.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Departement\Edit.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Departement\Index.cshtml.g.cs
