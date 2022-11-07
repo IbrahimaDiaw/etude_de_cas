@@ -157,3 +157,13 @@ D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Departement\Details.cshtml.g.cs
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Departement\Edit.cshtml.g.cs
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Departement\Index.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Commune\Create.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Commune\Delete.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Commune\Details.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Commune\Edit.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Commune\Index.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Village\Create.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Village\Delete.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Village\Details.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Village\Edit.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Village\Index.cshtml.g.cs
