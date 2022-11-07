@@ -1,0 +1,37 @@
+﻿@model asser_etude_cas.Models.View.RegionsViewModel
+
+@{
+    if(Model.isCreate == true)
+    {
+        Html.RenderPartial("Add", new asser_etude_cas.Models.Create.RegionCreateDto());
+    }
+    else
+    {
+        Html.RenderPartial("Edit", Model.SelectedRegion);
+    }
+}
+
+<h1>Liste des régions</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>N°</th>
+            <th>Nom</th>
+            <th>Action </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach( var region in Model.Regions)
+        {
+        <tr>
+            <td> 1 </td>
+            <td> @region.Nom</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@region.Id">Modifier</a> |
+                <a asp-action="Delete" asp-route-id="@region.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
