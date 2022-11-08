@@ -1,40 +1,40 @@
-﻿@model IEnumerable<asser_etude_cas.Models.VillageEntity>
+﻿@model IEnumerable<asser_etude_cas.Models.View.VillageViewModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Liste de village";
 }
 
-<h1>Index</h1>
+<h1>Liste des villages</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success float-right">Créer un nouveau village</a>
 </p>
-<table class="table">
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NomVillage)
+               Nom du village
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NbreDeMenage)
+                Nombre de ménages
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Statut)
+                Est eclairé
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Longitude)
+               Longitude
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Latitude)
+               Latitude
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RegionId)
+                Région
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DepartementId)
+                Département
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Commune)
+                Commune
             </th>
             <th></th>
         </tr>
@@ -58,17 +58,16 @@
                 @Html.DisplayFor(modelItem => item.Latitude)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Commune.Departement.Region.Nom)
+                @Html.DisplayFor(modelItem => item.Region.Nom)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Commune.Departement.Nom)
+                @Html.DisplayFor(modelItem => item.Departement.Nom)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Commune.Nom)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id">Editer</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

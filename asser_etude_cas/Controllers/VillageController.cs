@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using asser_etude_cas.Data;
 using asser_etude_cas.Models;
+using asser_etude_cas.Models.View;
+using asser_etude_cas.Models.Output;
 
 namespace asser_etude_cas.Controllers
 {
@@ -22,10 +24,52 @@ namespace asser_etude_cas.Controllers
         // GET: Village
         public async Task<IActionResult> Index()
         {
-            var aSERDbContext = _context.VillageEntity.Include(v => v.Commune)
-                                                      .ThenInclude(c => c.Departement)
-                                                      .ThenInclude(d => d.Region);
-            return View(await aSERDbContext.ToListAsync());
+            List<VillageEntity> entities = await _context.VillageEntity.Include(v => v.Commune)
+                                                     .ToListAsync();
+            List<DepartementEntity> departements = await _context.DepartementEntity.ToListAsync();
+            List<RegionEntity> regions = await _context.RegionEntity.ToListAsync();
+
+            List<VillageViewModel> models = new List<VillageViewModel>();
+            foreach (VillageEntity village in entities)
+            {
+
+                CommuneOutput communeOutput = new CommuneOutput()
+                {
+                    Id = village.Commune.Id,
+                    Nom = village.Commune.Nom,
+                };
+                DepartementEntity departement = departements.First(d => d.Id == village.DepartementId);
+                DepartementOutput departementOutput = new DepartementOutput()
+                {
+                    Id = departement.Id,
+                    Nom = departement.Nom,
+                };
+                RegionEntity  region = regions.First(d => d.Id == village.RegionId);
+                RegionOutput regionOutput = new RegionOutput()
+                {
+                    Id = region.Id,
+                    Nom = region.Nom,
+                };
+                VillageViewModel model = new VillageViewModel()
+                {
+                    Id = village.Id,
+                    NbreDeMenage = village.NbreDeMenage,
+                    NomVillage = village.NomVillage,
+                    Statut = village.Statut,
+                    Latitude = village.Latitude,
+                    Longitude = village.Longitude,
+                    CommuneId = village.CommuneId,
+                    Commune = communeOutput,
+                    DepartementId = village.DepartementId,
+                    Departement = departementOutput,
+                    RegionId = village.RegionId,
+                    Region = regionOutput,
+                };
+                models.Add(model);
+            }
+           
+            
+            return View(models);
         }
 
         // GET: Village/Details/5

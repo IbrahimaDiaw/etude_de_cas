@@ -1,12 +1,12 @@
 ﻿@model asser_etude_cas.Models.VillageEntity
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Modification d'un village";
 }
 
-<h1>Edit</h1>
+<h1>Modification village</h1>
 
-<h4>VillageEntity</h4>
+<h4>Village</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,12 +14,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="NomVillage" class="control-label"></label>
+                <label asp-for="NomVillage" class="control-label">Nom du village</label>
                 <input asp-for="NomVillage" class="form-control" />
                 <span asp-validation-for="NomVillage" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NbreDeMenage" class="control-label"></label>
+                <label asp-for="NbreDeMenage" class="control-label">Nombre de ménages</label>
                 <input asp-for="NbreDeMenage" class="form-control" />
                 <span asp-validation-for="NbreDeMenage" class="text-danger"></span>
             </div>
@@ -29,39 +29,39 @@
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="Longitude" class="control-label"></label>
+                <label asp-for="Longitude" class="control-label">Longitude</label>
                 <input asp-for="Longitude" class="form-control" />
                 <span asp-validation-for="Longitude" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Latitude" class="control-label"></label>
+                <label asp-for="Latitude" class="control-label">Latitude</label>
                 <input asp-for="Latitude" class="form-control" />
                 <span asp-validation-for="Latitude" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RegionId" class="control-label"></label>
+                <label asp-for="RegionId" class="control-label">Région</label>
                 <select asp-for="RegionId" class="form-control" asp-items="ViewBag.RegionId"></select>
                 <span asp-validation-for="RegionId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DepartementId" class="control-label"></label>
+                <label asp-for="DepartementId" class="control-label">Département</label>
                 <select asp-for="DepartementId" class="form-control" asp-items="ViewBag.DepartementId"></select>
                 <span asp-validation-for="DepartementId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CommuneId" class="control-label"></label>
+                <label asp-for="CommuneId" class="control-label">Commune</label>
                 <select asp-for="CommuneId" class="form-control" asp-items="ViewBag.CommuneId"></select>
                 <span asp-validation-for="CommuneId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Modifier" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Retour</a>
 </div>
 
 @section Scripts {

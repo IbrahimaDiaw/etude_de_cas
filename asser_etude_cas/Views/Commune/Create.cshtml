@@ -13,12 +13,12 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Nom" class="control-label"></label>
+                <label asp-for="Nom" class="control-label">Nom de la commune</label>
                 <input asp-for="Nom" class="form-control" />
                 <span asp-validation-for="Nom" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DepartementId" class="control-label"></label>
+                <label asp-for="DepartementId" class="control-label">Département</label>
                 <select asp-for="DepartementId" class ="form-control" asp-items="ViewBag.DepartementId"></select>
             </div>
             <div class="form-group">
@@ -29,7 +29,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Retour</a>
 </div>
 
 @section Scripts {

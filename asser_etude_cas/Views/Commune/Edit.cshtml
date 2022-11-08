@@ -1,12 +1,12 @@
 ﻿@model asser_etude_cas.Models.CommuneEntity
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Modification d'une commune";
 }
 
-<h1>Edit</h1>
+<h1>Modifier</h1>
 
-<h4>CommuneEntity</h4>
+<h4>Informations commune</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -19,19 +19,19 @@
                 <span asp-validation-for="Nom" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DepartementId" class="control-label"></label>
+                <label asp-for="DepartementId" class="control-label">Département</label>
                 <select asp-for="DepartementId" class="form-control" asp-items="ViewBag.DepartementId"></select>
                 <span asp-validation-for="DepartementId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Modifier" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Retour</a>
 </div>
 
 @section Scripts {
