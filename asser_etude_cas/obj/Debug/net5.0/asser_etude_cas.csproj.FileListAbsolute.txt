@@ -29,7 +29,6 @@ D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
-D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\asser_etude_cas.RazorTargetAssemblyInfo.cache
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\asser_etude_cas.RazorTargetAssemblyInfo.cs
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\asser_etude_cas.Views.pdb
@@ -189,3 +188,4 @@ D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Areas
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs

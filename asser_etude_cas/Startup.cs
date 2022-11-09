@@ -35,16 +35,17 @@ namespace asser_etude_cas
                 {
                     options.SignIn.RequireConfirmedAccount = true;
                     options.Password.RequireDigit = false;
-                    options.Password.RequiredLength = 6;
+                    options.Password.RequiredLength = 10;
                     options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequireUppercase = false;
                     options.Password.RequireLowercase = false;
                 })
             .AddEntityFrameworkStores<ASERDbContext>();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -69,7 +70,66 @@ namespace asser_etude_cas
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
+        }
+
+        private async Task CreateUsersAndRoles(IServiceProvider serviceProvider)
+        {
+            //initializing custom roles 
+            var RoleManager = serviceProvider.GetService<RoleManager<IdentityRole>>();
+            var UserManager = serviceProvider.GetService<UserManager<IdentityUser>>();
+            string[] roleNames = { "Admin", "Agent", "Guest" };
+            IdentityResult roleResult;
+
+            foreach (var roleName in roleNames)
+            {
+                var roleExist = await RoleManager.RoleExistsAsync(roleName);
+                if (!roleExist)
+                {
+                    //create the roles and seed them to the database: Question 1 
+                    roleResult = await RoleManager.CreateAsync(new IdentityRole(roleName));
+                }
+            }
+
+            IdentityUser user = await UserManager.FindByEmailAsync("admin@admin.com");
+
+            if (user == null)
+            {
+                user = new IdentityUser()
+                {
+                    UserName = "Ibrahima",
+                    Email = "admin@admin.com",
+                };
+                await UserManager.CreateAsync(user, "123456!");
+            }
+            await UserManager.AddToRoleAsync(user, "Admin");
+
+            IdentityUser user1 = await UserManager.FindByEmailAsync("agent@gmail.com");
+
+            if (user1 == null)
+            {
+                user1 = new IdentityUser()
+                {
+                    UserName = "Agent",
+                    Email = "agent@gmail.com",
+                };
+                await UserManager.CreateAsync(user1, "agent123");
+            }
+            await UserManager.AddToRoleAsync(user1, "Agent");
+
+            IdentityUser user3 = await UserManager.FindByEmailAsync("guest@gmail.com");
+
+            if (user3 == null)
+            {
+                user3 = new IdentityUser()
+                {
+                    UserName = "Guest",
+                    Email = "guest@gmail.com",
+                };
+                await UserManager.CreateAsync(user3, "123abc");
+            }
+            await UserManager.AddToRoleAsync(user3, "Guest");
         }
     }
 }

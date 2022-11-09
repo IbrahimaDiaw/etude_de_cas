@@ -3,6 +3,7 @@ using asser_etude_cas.Models;
 using asser_etude_cas.Models.Create;
 using asser_etude_cas.Models.Update;
 using asser_etude_cas.Models.View;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace asser_etude_cas.Controllers
 {
+    [Authorize]
     public class RegionController : Controller
     {
         private readonly ASERDbContext _aSERDbContext;
