@@ -1,5 +1,7 @@
 ﻿using asser_etude_cas.Configuration;
 using asser_etude_cas.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace asser_etude_cas.Data
 {
-    public class ASERDbContext : DbContext
+    public class ASERDbContext : IdentityDbContext<IdentityUser, IdentityRole, string>
     {
         public ASERDbContext(DbContextOptions options) : base(options)
         {
