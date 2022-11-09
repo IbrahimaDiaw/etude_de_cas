@@ -28,23 +28,24 @@
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item dropdown">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="RegionEntities" asp-action="Index">Région</a>
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Localisation</a>
                                 <div class="dropdown-menu">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Departement" asp-action="Index">Departement</a>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Commune" asp-action="Index">Commune</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="RegionEntities" asp-action="Index">Région</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Departement" asp-action="Index">Departement</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Commune" asp-action="Index">Commune</a>
                                 </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Departement" asp-action="Index">Département</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Village" asp-action="Index">Villages</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Commune" asp-action="Index">Communes</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Agent" asp-action="Index">Agents</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="EnquetePeriodique" asp-action="Index">Enquête</a>
                             </li>
                         }
-                        </ul>
+                    </ul>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
@@ -58,7 +59,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - asser_etude_cas - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - Eude de case - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

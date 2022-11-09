@@ -1,0 +1,59 @@
+﻿@model IEnumerable<asser_etude_cas.Models.AgentEntity>
+
+@{
+    ViewData["Title"] = "Liste des agents";
+}
+
+<h1>Liste des agents</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success float-right">Créer un nouvel agent</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Prénom
+            </th>
+            <th>
+                Nom
+            </th>
+            <th>
+                Code agent
+            </th>
+            <th>
+                Téléphone
+            </th>
+            <th>
+                Email
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeAgent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telephone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Modifier</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

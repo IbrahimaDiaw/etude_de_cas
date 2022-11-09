@@ -7,28 +7,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using asser_etude_cas.Data;
 using asser_etude_cas.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace asser_etude_cas.Controllers
 {
-    [Authorize]
-    public class DepartementController : Controller
+    public class AgentController : Controller
     {
         private readonly ASERDbContext _context;
 
-        public DepartementController(ASERDbContext context)
+        public AgentController(ASERDbContext context)
         {
             _context = context;
         }
 
-        // GET: Departement
+        // GET: Agent
         public async Task<IActionResult> Index()
         {
-            var aSERDbContext = _context.DepartementEntity.Include(d => d.Region);
-            return View(await aSERDbContext.ToListAsync());
+            return View(await _context.agences.ToListAsync());
         }
 
-        // GET: Departement/Details/5
+        // GET: Agent/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -36,43 +33,40 @@ namespace asser_etude_cas.Controllers
                 return NotFound();
             }
 
-            var departementEntity = await _context.DepartementEntity
-                .Include(d => d.Region)
+            var agentEntity = await _context.agences
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (departementEntity == null)
+            if (agentEntity == null)
             {
                 return NotFound();
             }
 
-            return View(departementEntity);
+            return View(agentEntity);
         }
 
-        // GET: Departement/Create
+        // GET: Agent/Create
         public IActionResult Create()
         {
-            ViewData["RegionId"] = new SelectList(_context.RegionEntity, "Id", "Nom");
             return View();
         }
 
-        // POST: Departement/Create
+        // POST: Agent/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nom,RegionId")] DepartementEntity departementEntity)
+        public async Task<IActionResult> Create([Bind("Id,Prenom,Nom,CodeAgent,Telephone,Email")] AgentEntity agentEntity)
         {
             if (ModelState.IsValid)
             {
-                departementEntity.Id = Guid.NewGuid();
-                _context.Add(departementEntity);
+                agentEntity.Id = Guid.NewGuid();
+                _context.Add(agentEntity);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RegionId"] = new SelectList(_context.RegionEntity, "Id", "Nom", departementEntity.RegionId);
-            return View(departementEntity);
+            return View(agentEntity);
         }
 
-        // GET: Departement/Edit/5
+        // GET: Agent/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -80,23 +74,22 @@ namespace asser_etude_cas.Controllers
                 return NotFound();
             }
 
-            var departementEntity = await _context.DepartementEntity.FindAsync(id);
-            if (departementEntity == null)
+            var agentEntity = await _context.agences.FindAsync(id);
+            if (agentEntity == null)
             {
                 return NotFound();
             }
-            ViewData["RegionId"] = new SelectList(_context.RegionEntity, "Id", "Nom", departementEntity.RegionId);
-            return View(departementEntity);
+            return View(agentEntity);
         }
 
-        // POST: Departement/Edit/5
+        // POST: Agent/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nom,RegionId")] DepartementEntity departementEntity)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Prenom,Nom,CodeAgent,Telephone,Email")] AgentEntity agentEntity)
         {
-            if (id != departementEntity.Id)
+            if (id != agentEntity.Id)
             {
                 return NotFound();
             }
@@ -105,12 +98,12 @@ namespace asser_etude_cas.Controllers
             {
                 try
                 {
-                    _context.Update(departementEntity);
+                    _context.Update(agentEntity);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DepartementEntityExists(departementEntity.Id))
+                    if (!AgentEntityExists(agentEntity.Id))
                     {
                         return NotFound();
                     }
@@ -121,11 +114,10 @@ namespace asser_etude_cas.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RegionId"] = new SelectList(_context.RegionEntity, "Id", "Nom", departementEntity.RegionId);
-            return View(departementEntity);
+            return View(agentEntity);
         }
 
-        // GET: Departement/Delete/5
+        // GET: Agent/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -133,31 +125,30 @@ namespace asser_etude_cas.Controllers
                 return NotFound();
             }
 
-            var departementEntity = await _context.DepartementEntity
-                .Include(d => d.Region)
+            var agentEntity = await _context.agences
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (departementEntity == null)
+            if (agentEntity == null)
             {
                 return NotFound();
             }
 
-            return View(departementEntity);
+            return View(agentEntity);
         }
 
-        // POST: Departement/Delete/5
+        // POST: Agent/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var departementEntity = await _context.DepartementEntity.FindAsync(id);
-            _context.DepartementEntity.Remove(departementEntity);
+            var agentEntity = await _context.agences.FindAsync(id);
+            _context.agences.Remove(agentEntity);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool DepartementEntityExists(Guid id)
+        private bool AgentEntityExists(Guid id)
         {
-            return _context.DepartementEntity.Any(e => e.Id == id);
+            return _context.agences.Any(e => e.Id == id);
         }
     }
 }

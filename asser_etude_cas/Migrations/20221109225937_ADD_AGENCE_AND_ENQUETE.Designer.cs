@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using asser_etude_cas.Data;
 
 namespace asser_etude_cas.Migrations
 {
     [DbContext(typeof(ASERDbContext))]
-    partial class ASERDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221109225937_ADD_AGENCE_AND_ENQUETE")]
+    partial class ADD_AGENCE_AND_ENQUETE
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -9,9 +9,11 @@ using asser_etude_cas.Data;
 using asser_etude_cas.Models;
 using asser_etude_cas.Models.View;
 using asser_etude_cas.Models.Output;
+using Microsoft.AspNetCore.Authorization;
 
 namespace asser_etude_cas.Controllers
 {
+    [Authorize]
     public class VillageController : Controller
     {
         private readonly ASERDbContext _context;

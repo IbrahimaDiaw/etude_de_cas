@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using asser_etude_cas.Data;
 using asser_etude_cas.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace asser_etude_cas.Controllers
 {
+    [Authorize]
     public class CommuneController : Controller
     {
         private readonly ASERDbContext _context;
