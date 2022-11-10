@@ -29,5 +29,13 @@ namespace asser_etude_cas.Models
 
         [StringLength(AserConsts.LABEL_MEDIUM_SIZE)]
         public string Email { get; set; }
+
+        public string NomComplet
+        {
+            get
+            {
+                return $"{Prenom} {Nom}";
+            }
+        }
     }
 }

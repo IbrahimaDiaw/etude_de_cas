@@ -1,0 +1,49 @@
+﻿@model asser_etude_cas.Models.EnquetePeriodiqueEntity
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>EnquetePeriodiqueEntity</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Intitule" class="control-label">Intitulé</label>
+                <input asp-for="Intitule" class="form-control" />
+                <span asp-validation-for="Intitule" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NbreMenagesRecenses" class="control-label">Nombre de ménages recencés</label>
+                <input asp-for="NbreMenagesRecenses" class="form-control" />
+                <span asp-validation-for="NbreMenagesRecenses" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VillageId" class="control-label">Village</label>
+                <select asp-for="VillageId" class="form-control" asp-items="ViewBag.VillageId"></select>
+                <span asp-validation-for="VillageId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgentId" class="control-label">Agence</label>
+                <select asp-for="AgentId" class="form-control" asp-items="ViewBag.AgentId"></select>
+                <span asp-validation-for="AgentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

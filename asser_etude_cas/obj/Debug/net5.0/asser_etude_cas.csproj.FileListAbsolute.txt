@@ -194,3 +194,8 @@ D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Agent\Details.cshtml.g.cs
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Agent\Edit.cshtml.g.cs
 D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\Agent\Index.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\EnquetePeriodique\Create.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\EnquetePeriodique\Delete.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\EnquetePeriodique\Details.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\EnquetePeriodique\Edit.cshtml.g.cs
+D:\Project\Aser_app\asser_etude_cas\asser_etude_cas\obj\Debug\net5.0\Razor\Views\EnquetePeriodique\Index.cshtml.g.cs

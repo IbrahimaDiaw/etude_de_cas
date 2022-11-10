@@ -1,0 +1,48 @@
+﻿@model asser_etude_cas.Models.EnquetePeriodiqueEntity
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>EnquetePeriodiqueEntity</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NbreMenagesRecenses)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NbreMenagesRecenses)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TauxAccesParMenage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TauxAccesParMenage)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TauxCouvertureParVillage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TauxCouvertureParVillage)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Village)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Village.NomVillage)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AgentId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AgentId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

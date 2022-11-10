@@ -26,5 +26,8 @@ namespace asser_etude_cas.Models
 
         [Required]
         public Guid AgentId { get; set; }
+
+        [Required]
+        public string Intitule { get; set; }
     }
 }

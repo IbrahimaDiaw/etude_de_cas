@@ -22,7 +22,7 @@ namespace asser_etude_cas.Controllers
         // GET: Agent
         public async Task<IActionResult> Index()
         {
-            return View(await _context.agences.ToListAsync());
+            return View(await _context.Agences.ToListAsync());
         }
 
         // GET: Agent/Details/5
@@ -33,7 +33,7 @@ namespace asser_etude_cas.Controllers
                 return NotFound();
             }
 
-            var agentEntity = await _context.agences
+            var agentEntity = await _context.Agences
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (agentEntity == null)
             {
@@ -74,7 +74,7 @@ namespace asser_etude_cas.Controllers
                 return NotFound();
             }
 
-            var agentEntity = await _context.agences.FindAsync(id);
+            var agentEntity = await _context.Agences.FindAsync(id);
             if (agentEntity == null)
             {
                 return NotFound();
@@ -125,7 +125,7 @@ namespace asser_etude_cas.Controllers
                 return NotFound();
             }
 
-            var agentEntity = await _context.agences
+            var agentEntity = await _context.Agences
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (agentEntity == null)
             {
@@ -140,15 +140,15 @@ namespace asser_etude_cas.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var agentEntity = await _context.agences.FindAsync(id);
-            _context.agences.Remove(agentEntity);
+            var agentEntity = await _context.Agences.FindAsync(id);
+            _context.Agences.Remove(agentEntity);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AgentEntityExists(Guid id)
         {
-            return _context.agences.Any(e => e.Id == id);
+            return _context.Agences.Any(e => e.Id == id);
         }
     }
 }

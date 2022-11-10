@@ -20,7 +20,7 @@ namespace asser_etude_cas.Data
         public DbSet<DepartementEntity> DepartementEntity { get; set; }
         public DbSet<CommuneEntity> CommuneEntity { get; set; }
         public DbSet<VillageEntity> VillageEntity { get; set; }
-        public DbSet<AgentEntity> agences { get; set; }
+        public DbSet<AgentEntity> Agences { get; set; }
         public DbSet<EnquetePeriodiqueEntity> EnquetePeriodiques { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
