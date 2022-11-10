@@ -1,56 +1,61 @@
-﻿@model IEnumerable<asser_etude_cas.Models.EnquetePeriodiqueEntity>
+﻿@model IEnumerable<asser_etude_cas.Models.Output.EnquetePeriodiqueOutput>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Liste enquête";
 }
 
-<h1>Index</h1>
+<h1>Liste des enquêtes périodiques</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success float-right">Créer une nouvelle enquête</a>
 </p>
-<table class="table">
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NbreMenagesRecenses)
+                Intitulé
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TauxAccesParMenage)
+               Nb de ménages recencés
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TauxCouvertureParVillage)
+                Taux d'accès des menages
+            </th>
+            <th>
+               Taux de couverture
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Village)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AgentId)
+                Agent
             </th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Intitule)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.NbreMenagesRecenses)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TauxAccesParMenage)
+                @Html.DisplayFor(modelItem => item.TauxAccesParMenage) %
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TauxCouvertureParVillage)
+                @Html.DisplayFor(modelItem => item.TauxCouvertureParVillage) %
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Village.NomVillage)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AgentId)
+                @Html.DisplayFor(modelItem => item.Agent.NomComplet)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id">Modifier</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using asser_etude_cas.Data;
 using asser_etude_cas.Models;
+using asser_etude_cas.Models.Output;
 
 namespace asser_etude_cas.Controllers
 {
@@ -22,8 +23,29 @@ namespace asser_etude_cas.Controllers
         // GET: EnquetePeriodique
         public async Task<IActionResult> Index()
         {
-            var aSERDbContext = _context.EnquetePeriodiques.Include(e => e.Village);
-            return View(await aSERDbContext.ToListAsync());
+            List<EnquetePeriodiqueEntity> aSERDbContext = await _context.EnquetePeriodiques.Include(e => e.Village).ToListAsync();
+            List<EnquetePeriodiqueOutput> enquetePeriodiques = new List<EnquetePeriodiqueOutput>();
+            foreach (EnquetePeriodiqueEntity enquete in aSERDbContext)
+            {
+                AgentEntity agent = await _context.Agences.Where(a => a.Id == enquete.AgentId).FirstOrDefaultAsync();
+
+                EnquetePeriodiqueOutput enqueteOutput = new EnquetePeriodiqueOutput()
+                {
+                    Id = enquete.Id,
+                    Intitule = enquete.Intitule,
+                    NbreMenagesRecenses = enquete.NbreMenagesRecenses,
+                    TauxAccesParMenage = enquete.TauxAccesParMenage,
+                    TauxCouvertureParVillage = enquete.TauxCouvertureParVillage,
+                    VillageId = enquete.VillageId,
+                    Village = enquete.Village,
+                    AgentId = enquete.AgentId,
+                    Agent = agent,
+                };
+
+                enquetePeriodiques.Add(enqueteOutput);
+            }
+
+            return View(enquetePeriodiques);
         }
 
         // GET: EnquetePeriodique/Details/5
@@ -63,10 +85,10 @@ namespace asser_etude_cas.Controllers
             if (ModelState.IsValid)
             {
                 enquetePeriodiqueEntity.Id = Guid.NewGuid();
-                List<VillageEntity> villages = await _context.VillageEntity.ToListAsync();
-                VillageEntity villageEntity = villages.Where(v => v.Id == enquetePeriodiqueEntity.VillageId).FirstOrDefault();
-                enquetePeriodiqueEntity.TauxAccesParMenage = (enquetePeriodiqueEntity.NbreMenagesRecenses / villageEntity.NbreDeMenage) * 100;
-                enquetePeriodiqueEntity.TauxCouvertureParVillage = (villages.Count(v => v.Statut == true) / villages.Count()) * 100;
+                decimal tauxDeMenages = await CalculTauxAccèsParMenages(enquetePeriodiqueEntity);
+                decimal tauxCouverture = await CalculTauxCouverture(enquetePeriodiqueEntity);
+                enquetePeriodiqueEntity.TauxAccesParMenage = tauxDeMenages;
+                enquetePeriodiqueEntity.TauxCouvertureParVillage = tauxCouverture;
                 _context.Add(enquetePeriodiqueEntity);
 
                 await _context.SaveChangesAsync();
@@ -111,11 +133,10 @@ namespace asser_etude_cas.Controllers
             {
                 try
                 {
-                    List<VillageEntity> villages = await _context.VillageEntity.ToListAsync();
-                    VillageEntity villageEntity = villages.Where(v => v.Id == enquetePeriodiqueEntity.VillageId).FirstOrDefault();
-                    decimal resultAcces = enquetePeriodiqueEntity.NbreMenagesRecenses / villageEntity.NbreDeMenage;
-                    enquetePeriodiqueEntity.TauxAccesParMenage = decimal.Round((enquetePeriodiqueEntity.NbreMenagesRecenses / villageEntity.NbreDeMenage) * 100, 2, MidpointRounding.AwayFromZero);
-                    enquetePeriodiqueEntity.TauxCouvertureParVillage = (villages.Count(v => v.Statut == true) / villages.Count()) * 100;
+                    decimal tauxDeMenages = await CalculTauxAccèsParMenages(enquetePeriodiqueEntity);
+                    decimal tauxCouverture = await CalculTauxCouverture(enquetePeriodiqueEntity);
+                    enquetePeriodiqueEntity.TauxAccesParMenage = tauxDeMenages;
+                    enquetePeriodiqueEntity.TauxCouvertureParVillage = tauxCouverture;
                     _context.Update(enquetePeriodiqueEntity);
                     await _context.SaveChangesAsync();
                 }
@@ -170,6 +191,29 @@ namespace asser_etude_cas.Controllers
         private bool EnquetePeriodiqueEntityExists(Guid id)
         {
             return _context.EnquetePeriodiques.Any(e => e.Id == id);
+        }
+        
+        private async Task<decimal> CalculTauxAccèsParMenages(EnquetePeriodiqueEntity enquetePeriodiqueEntity)
+        {
+            List<VillageEntity> villages = await _context.VillageEntity.ToListAsync();
+            VillageEntity villageEntity = villages.Where(v => v.Id == enquetePeriodiqueEntity.VillageId).FirstOrDefault();
+            decimal nbreMenagesRecenses = enquetePeriodiqueEntity.NbreMenagesRecenses;
+            decimal nbreMenage = villageEntity.NbreDeMenage;
+            decimal resultAcces = nbreMenagesRecenses / nbreMenage;
+            decimal tauxAccesParMenage = decimal.Round(resultAcces * 100, 2, MidpointRounding.AwayFromZero);
+
+            return tauxAccesParMenage;
+        }
+
+        private async Task<decimal> CalculTauxCouverture(EnquetePeriodiqueEntity enquetePeriodiqueEntity)
+        {
+            List<VillageEntity> villages = await _context.VillageEntity.ToListAsync();
+            int villageElectrifie = villages.Count(v => v.Statut == true);
+            int villageTotal = villages.Count();
+
+            decimal tauxCouvertureParVillage = (villageElectrifie / villageTotal) * 100;
+
+            return tauxCouvertureParVillage;
         }
     }
 }
